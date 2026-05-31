@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+
+<body style="font-family: Arial; background-color: #f0f4ff; text-align: center;">
+
+    <h1 style="color: blue;">Registration Form</h1>
+
+    <form action="/submit" method="POST" onsubmit="return validateForm()"
+          style="background: white; padding: 20px; width: 300px; margin: auto; border-radius: 10px;">
+
+        <input type="text" id="name" name="name"
+               placeholder="Enter Name"
+               style="width: 90%; padding: 10px; margin: 10px;"><br>
+
+        <input type="email" id="email" name="email"
+               placeholder="Enter Email"
+               style="width: 90%; padding: 10px; margin: 10px;"><br>
+
+        <input type="password" id="password" name="password"
+               placeholder="Enter Password"
+               style="width: 90%; padding: 10px; margin: 10px;"><br>
+
+        <button type="submit"
+                style="background: blue; color: white; padding: 10px 20px; border: none;">
+            Submit
+        </button>
+    </form>
+
+    <script>
+        function validateForm() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if(name === "" || email === "" || password === "") {
+                alert("All fields are required!");
+                return false;
+            }
+
+            if(password.length < 6) {
+                alert("Password must be at least 6 characters");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+</html>
